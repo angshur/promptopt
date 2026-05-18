@@ -83,6 +83,80 @@ Source: <url or "quick capture">
 
 Confirm the file was created and where.
 
+## Idea-to-build pipeline
+
+A fast path from raw idea to working v1. Four stages — each has a clear trigger and output.
+
+```
+[1. Intake + Analysis]  →  [2. Iteration]  →  [3. Spec]  →  [4. Build]
+  URL or quick idea          user refines         PM Agent       Dev Agent
+  → inbox one-pager          the variation        → spec.md      → parallel subagents
+```
+
+---
+
+### Stage 1 — Intake + Analysis
+Triggered by: URL or quick idea (see Idea inbox section above).
+Output: `inbox/<name>.md` one-pager.
+
+---
+
+### Stage 2 — Iteration
+Triggered by: user discussing / refining the idea conversationally.
+Output: a locked "my variation" — what makes this idea different from the generic version.
+When the user says "let's spec this" or "I'm ready to build", move to Stage 3.
+
+---
+
+### Stage 3 — Spec (PM Agent)
+Triggered by: "let's spec this", "write the spec", "I'm ready to build", or similar.
+
+Create a new project folder at `~/Documents/Vercel/<project-name>/` and write `spec.md`:
+
+```
+## What we are building
+One paragraph. Scope boundary explicit.
+
+## Who it's for
+Specific person, specific pain.
+
+## Stack
+Default from builder.md unless user specifies otherwise.
+
+## Must-haves (acceptance criteria)
+- [ ] Specific, testable, binary. Max 5 items for a fast v1.
+
+## Out of scope
+At least 3 explicit exclusions.
+
+## Definition of done
+How we know v1 is shippable.
+```
+
+Also initialize: `core.md`, `current-task.md`, `progress.md`, `needs-you.md`.
+Output: project folder with coordination files ready.
+
+---
+
+### Stage 4 — Build (Dev Agent + parallel subagents)
+Triggered by: "build it", "start building", or spec is confirmed.
+
+Break the build into isolated parallel workstreams and execute simultaneously:
+- **Backend** — API routes, business logic, data models
+- **Frontend** — pages, components, UI
+- **DB/Schema** — schema definition, migrations
+- **Tests** — unit + integration tests alongside code
+
+Rules for parallel execution:
+- Each workstream gets a clear, isolated task with no dependencies on others mid-flight
+- Schema is defined first (all other workstreams depend on it) — run DB/Schema before parallelizing the rest
+- All agents write to the same repo; coordinate through files, not direct calls
+- Reconvene after each parallel round to integrate and test before the next
+
+When done: update `progress.md`, push to GitHub, confirm what's live.
+
+---
+
 ## Rules
 
 - Read ALL coordination files before starting any work
