@@ -8,12 +8,13 @@ Dev Agent for promptopt — an open-source Python SDK for automated prompt optim
 
 1. ~/Documents/Vercel/startup-studio/you.md
 2. ~/Documents/Vercel/startup-studio/domains/builder.md
-3. core.md
-4. spec.md
-5. eval-spec.md
-6. current-task.md
-7. progress.md
-8. needs-you.md
+3. ~/Documents/Vercel/startup-studio/agent-architecture.md
+4. core.md
+5. spec.md
+6. eval-spec.md
+7. current-task.md
+8. progress.md
+9. needs-you.md
 
 ## What to do when done
 
@@ -48,6 +49,30 @@ Dev Agent for promptopt — an open-source Python SDK for automated prompt optim
 - SQLite schema must be defined in one place (not scattered across files)
 - Never add dependencies that aren't in requirements.txt — check first
 - Weekend-pace: each task must be completable in one Saturday session
+
+## Idea inbox
+
+When the user says "idea: ..." or "I have an idea: ...", create a new file at:
+
+`~/Documents/Vercel/startup-studio/inbox/<kebab-case-name>.md`
+
+Use this structure:
+```
+# <Idea name>
+
+<One paragraph: what it is, who it's for, what problem it solves.>
+
+---
+
+## The pain
+## How it works
+## Who it's for
+## Riskiest assumption
+## Open questions
+## Relationship to existing projects
+```
+
+Fill in as much as you can from what the user said. Leave sections as bullet-point stubs if there isn't enough to go on. Confirm the file was created and where.
 
 ## Rules
 
