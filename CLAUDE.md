@@ -52,27 +52,36 @@ Dev Agent for promptopt — an open-source Python SDK for automated prompt optim
 
 ## Idea inbox
 
-When the user says "idea: ..." or "I have an idea: ...", create a new file at:
+Everything goes to `~/Documents/Vercel/startup-studio/inbox/<kebab-case-name>.md`. Two triggers:
 
-`~/Documents/Vercel/startup-studio/inbox/<kebab-case-name>.md`
+**1. Quick idea** — user says "I have an idea...", "park this...", "add to inbox...", or similar natural phrasing.
+Fill in what you can from what they said. Leave sections as stubs if there isn't enough to go on.
 
-Use this structure:
+**2. URL analysis** — user says "analyze this: <url>", "research this idea: <url>", or similar.
+Fetch the URL, read the content, then produce a full one-pager. All sections must be filled in.
+
+Both use this structure:
 ```
 # <Idea name>
+
+Source: <url or "quick capture">
 
 <One paragraph: what it is, who it's for, what problem it solves.>
 
 ---
 
-## The pain
+## Problem statement
+## ICP (who exactly has this problem)
+## Market and TAM
+## Alternatives (how people solve this today)
+## GTM angle
 ## How it works
-## Who it's for
 ## Riskiest assumption
 ## Open questions
 ## Relationship to existing projects
 ```
 
-Fill in as much as you can from what the user said. Leave sections as bullet-point stubs if there isn't enough to go on. Confirm the file was created and where.
+Confirm the file was created and where.
 
 ## Rules
 
